@@ -61,7 +61,7 @@ int main()
         cout << "1. 구구단\n";
         cout << "2. 두 자리 곱셈\n";
         cout << "3. 여러 자리 덧셈\n";
-        cout << "4. 종료\n";
+        cout << "0. 종료\n";
         cout << "선택: ";
         cin >> menu;
 
