@@ -5,24 +5,29 @@ using namespace std;
 
 #define MAXWORDS 100
 
-struct WordPair {
+struct WordPair 
+{
     string eng;  // 영어 단어
     string kor;  // 한글 설명
 };
 
-class MyDic {
+class MyDic 
+{
     WordPair words[MAXWORDS];  // 단어 배열
     int nWords;                // 현재 단어 수
 
 public:
     // 생성자
-    MyDic() {
+    MyDic() 
+    {
         nWords = 0;
     }
 
     // 단어 추가
-    void add(string eng, string kor) {
-        if (nWords < MAXWORDS) {
+    void add(string eng, string kor) 
+    {
+        if (nWords < MAXWORDS) 
+        {
             words[nWords].eng = eng;
             words[nWords].kor = kor;
             nWords++;
@@ -30,11 +35,13 @@ public:
     }
 
     // 파일에서 읽기
-    void load(string filename) {
+    void load(string filename) 
+    {
         ifstream fin(filename);
 
         string eng, kor;
-        while (fin >> eng >> kor) {
+        while (fin >> eng >> kor) 
+        {
             add(eng, kor);
         }
 
@@ -42,10 +49,12 @@ public:
     }
 
     // 파일에 저장
-    void store(string filename) {
+    void store(string filename) 
+    {
         ofstream fout(filename);
 
-        for (int i = 0; i < nWords; i++) {
+        for (int i = 0; i < nWords; i++) 
+        {
             fout << words[i].eng << " " << words[i].kor << endl;
         }
 
@@ -53,29 +62,34 @@ public:
     }
 
     // 출력
-    void print() {
-        for (int i = 0; i < nWords; i++) {
+    void print() 
+    {
+        for (int i = 0; i < nWords; i++) 
+        {
             cout << i << ": " << words[i].eng
                  << " - " << words[i].kor << endl;
         }
     }
 
     // 영어 단어 반환
-    string getEng(int id) {
+    string getEng(int id) 
+    {
         if (id >= 0 && id < nWords)
             return words[id].eng;
         return "";
     }
 
     // 한글 뜻 반환
-    string getKor(int id) {
+    string getKor(int id) 
+    {
         if (id >= 0 && id < nWords)
             return words[id].kor;
         return "";
     }
 };
 
-int main() {
+int main() 
+{
     MyDic dic;
 
     // 단어 추가
